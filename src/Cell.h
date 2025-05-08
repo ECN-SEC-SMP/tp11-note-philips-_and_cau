@@ -1,0 +1,54 @@
+#pragma once
+
+#include <vector>
+#include <iostream>
+
+#include "enums/Border.h"
+#include "Target.h"
+#include "Robot.h"
+
+class Cell {
+private:
+    int m_x;
+    int m_y;
+
+    Border m_border;
+    Robot m_robot;
+    Target m_target;
+
+    bool m_hasRobot = false;
+    bool m_hasTarget = false;
+
+public:
+
+// Constructeurs
+    Cell() : m_x(0), m_y(0) {};
+    Cell(int x, int y);
+
+// Getters
+    int getX() const { return this->m_x; };
+    int getY() const { return this->m_y; };
+    Target getTarget() { return this->m_target; };
+    Border getBorder() const { return this->m_border; }
+
+    
+
+// Setters
+    void setBorder(Border i_border);
+
+    void setTarget(Target i_target) { 
+        m_target = i_target; 
+        m_hasTarget = true;
+    }
+
+    void setRobot(Robot i_robot, bool i_hasRobot) { 
+        m_robot = i_robot; 
+        m_hasRobot = i_hasRobot; 
+    }
+
+// Autres
+    bool hasTarget() const { return m_hasTarget; }; 
+    
+    bool hasRobot() const { return m_hasRobot; };
+
+};
