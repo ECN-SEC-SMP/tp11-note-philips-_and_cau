@@ -286,6 +286,9 @@ void Board::initializeRobots() {
         m_robots.back().setCell(&cells[x][y]); 
         this->getCell(x,y).setRobot(&m_robots.back()); //On met le robot dans la case  
 
+    }
+}
+
 void Board::printBoard() const {
     std::cout << "Board (" << TAILLE_X << " x " << TAILLE_Y << ")" << std::endl;
     for (int y = 0; y < TAILLE_Y; ++y) {
